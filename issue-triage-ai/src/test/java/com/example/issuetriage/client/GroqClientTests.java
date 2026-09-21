@@ -55,6 +55,8 @@ class GroqClientTests {
 	@Test
 	void completeMapsNonSuccessResponseWithoutDisclosingSecrets() {
 		server.expect(requestTo("https://groq.test/openai/v1/chat/completions"))
+			.andExpect(method(org.springframework.http.HttpMethod.POST))
+			.andExpect(header(HttpHeaders.AUTHORIZATION, "Bearer " + API_KEY))
 			.andRespond(withStatus(HttpStatus.TOO_MANY_REQUESTS)
 				.contentType(MediaType.APPLICATION_JSON)
 				.body("{\"error\":{\"message\":\"upstream failure\"}}"));
