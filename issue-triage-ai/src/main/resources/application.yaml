@@ -1,3 +1,8 @@
 spring:
   application:
     name: issue-triage-ai
+
+groq:
+  base-url: https://api.groq.com/openai/v1
+  api-key: ${GROQ_API_KEY}
+  model: llama-3.3-70b-versatile
