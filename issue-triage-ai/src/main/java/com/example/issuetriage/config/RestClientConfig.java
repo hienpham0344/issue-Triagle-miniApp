@@ -6,11 +6,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
 
 @Configuration
-@EnableConfigurationProperties(GroqProperties.class)
+@EnableConfigurationProperties(GeminiProperties.class)
 public class RestClientConfig {
 
 	@Bean
-	RestClient groqRestClient(GroqProperties properties) {
+	RestClient geminiRestClient(GeminiProperties properties) {
 		return RestClient.builder().baseUrl(properties.baseUrl()).build();
 	}
 }
